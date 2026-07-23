@@ -1,38 +1,48 @@
 .lead-section {
-  padding: 6rem 0;
-  background-color: var(--color-primary);
-  color: white;
+  padding: 8rem 0;
+  background-color: var(--color-bg);
 }
 
-.lead-box {
-  display: flex;
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lead-section.in-view .zoom-in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.lead-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
   gap: 4rem;
-  background: rgba(31, 41, 55, 0.6);
-  border-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
   padding: 4rem;
   align-items: center;
 }
 
-.lead-text {
-  flex: 1;
-}
-
 .lead-text h2 {
-  color: white;
-  margin-bottom: 1.5rem;
-}
-
-.lead-text p {
-  color: #D1D5DB;
-  font-size: 1.125rem;
+  margin-bottom: 1rem;
 }
 
 .lead-form {
-  flex: 1;
-  width: 100%;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  background: var(--color-bg);
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
 
@@ -45,34 +55,38 @@
 .form-group label {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #9CA3AF;
+  color: var(--color-text-main);
 }
 
 .form-group input,
 .form-group select {
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(17, 24, 39, 0.8);
-  color: white;
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
 }
 
 .form-group input:focus,
 .form-group select:focus {
   border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .w-full {
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .lead-box {
-    flex-direction: column;
-    padding: 2rem;
+@media (max-width: 992px) {
+  .lead-wrapper {
+    grid-template-columns: 1fr;
+    padding: 2.5rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
   }
 }
