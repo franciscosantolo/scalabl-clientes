@@ -20,10 +20,10 @@ export default function LeadCapture() {
       <div className="container">
         <div className="lead-wrapper zoom-in">
           <div className="lead-text">
-            <h2>Solicite Muestras.</h2>
+            <h2>Evaluación en Planta.</h2>
             <p>
-              Pruebe el rendimiento real de la Serie Star en su línea de producción. 
-              Complete el formulario corporativo y un especialista se comunicará a la brevedad.
+              Compruebe el rendimiento real de la Serie Star directamente en su 
+              línea de producción. Solicite muestras industriales.
             </p>
           </div>
           
@@ -34,7 +34,7 @@ export default function LeadCapture() {
                 <input type="text" placeholder="Ej. Jean Dupont" required />
               </div>
               <div className="form-group">
-                <label>Empresa</label>
+                <label>Empresa / Panadería</label>
                 <input type="text" placeholder="Boulangerie Paris" required />
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function LeadCapture() {
               </select>
             </div>
             
-            <button type="submit" className="btn btn-primary w-full">Solicitar Evaluación Técnica</button>
+            <button type="submit" className="btn btn-primary w-full">Solicitar Kit de Muestras</button>
           </form>
         </div>
       </div>

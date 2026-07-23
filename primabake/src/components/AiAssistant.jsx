@@ -3,7 +3,7 @@ import './AiAssistant.css';
 
 export default function AiAssistant() {
   const [messages, setMessages] = useState([
-    { role: 'assistant', text: 'Bienvenido. Soy el perfilador técnico de Primabake. Para derivarlo correctamente, ¿busca comprar directo para su fábrica en Francia o distribuir internacionalmente?' }
+    { role: 'assistant', text: 'Bienvenido. Soy el asesor industrial B2B de Primabake France. ¿Para qué proceso productivo necesita papel de horneado?' }
   ]);
   const [input, setInput] = useState('');
   
@@ -11,11 +11,9 @@ export default function AiAssistant() {
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
-      });
+      if (entries[0].isIntersecting) {
+        entries[0].target.classList.add('in-view');
+      }
     }, { threshold: 0.1 });
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -32,7 +30,7 @@ export default function AiAssistant() {
     setTimeout(() => {
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        text: 'Registrado. Para una línea de alta temperatura (220°C) o alta carga de azúcar, sugerimos la Serie Star. ¿Me indica su correo corporativo para enviarle la tabla de retornos (ROI)?' 
+        text: 'Comprendido. Para ese nivel térmico le recomendamos la Serie Star (hasta 220°C constantes). ¿Desea que un ejecutivo le envíe las especificaciones técnicas completas y muestras?' 
       }]);
     }, 1200);
   };
@@ -42,22 +40,18 @@ export default function AiAssistant() {
       <div className="container assistant-container">
         
         <div className="assistant-content slide-up">
-          <div className="badge">AI-Powered Sales</div>
-          <h2>Atención Técnica Global.</h2>
+          <div className="section-subtitle">Soporte Continuo</div>
+          <h2>Asesoría B2B Integrada.</h2>
           <p>
-            No pierdas leads fuera de horario. Nuestro agente automatizado 
-            perfila técnicamente a cada prospecto B2B, resuelve consultas 
-            sobre la Serie Star y lo deriva al ejecutivo de cuentas correspondiente.
+            Entendemos que la industria no se detiene. Nuestro sistema de 
+            perfilado técnico analiza sus requerimientos térmicos y de carga de azúcar
+            en tiempo real para asignarle el papel exacto que su planta necesita.
           </p>
           
           <div className="stats-grid">
             <div className="stat-card">
-              <h4>24/7</h4>
-              <span>Disponibilidad</span>
-            </div>
-            <div className="stat-card">
               <h4>100%</h4>
-              <span>Cualificación técnica</span>
+              <span>Precisión Técnica</span>
             </div>
           </div>
         </div>
@@ -65,10 +59,7 @@ export default function AiAssistant() {
         <div className="assistant-ui-wrapper fade-in">
           <div className="assistant-ui">
             <div className="ui-header">
-              <div className="window-controls">
-                <span></span><span></span><span></span>
-              </div>
-              <div className="ui-title">Primabake Technical Agent</div>
+              <div className="ui-title">Primabake Technical Advisor</div>
               <div className="ui-status">
                 <span className="pulse"></span> Online
               </div>
@@ -78,7 +69,9 @@ export default function AiAssistant() {
               {messages.map((msg, i) => (
                 <div key={i} className={`chat-message ${msg.role}`}>
                   {msg.role === 'assistant' && (
-                    <div className="avatar">P</div>
+                    <div className="avatar">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                    </div>
                   )}
                   <div className="bubble">{msg.text}</div>
                 </div>
@@ -88,17 +81,13 @@ export default function AiAssistant() {
             <form className="ui-input-area" onSubmit={handleSend}>
               <input 
                 type="text" 
-                placeholder="Ingrese respuesta..." 
+                placeholder="Describa su línea de producción..." 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
               />
-              <button type="submit">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-              </button>
+              <button type="submit">Enviar</button>
             </form>
           </div>
-          
-          <div className="ui-glow"></div>
         </div>
 
       </div>
