@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import logo from '../assets/logo.avif';
 
 export default function Hero() {
   return (
@@ -9,7 +10,7 @@ export default function Hero() {
       <div className="container hero-content">
         <header className="hero-header">
           <div className="logo">
-            <span className="logo-text">PRIMABAKE</span>
+            <img src={logo} alt="Primabake Logo" style={{ height: '40px', width: 'auto' }} />
           </div>
           <nav className="hero-nav">
             <a href="#features">Productos</a>
