@@ -1,0 +1,78 @@
+.lead-section {
+  padding: 6rem 0;
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.lead-box {
+  display: flex;
+  gap: 4rem;
+  background: rgba(31, 41, 55, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
+  padding: 4rem;
+  align-items: center;
+}
+
+.lead-text {
+  flex: 1;
+}
+
+.lead-text h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.lead-text p {
+  color: #D1D5DB;
+  font-size: 1.125rem;
+}
+
+.lead-form {
+  flex: 1;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #9CA3AF;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(17, 24, 39, 0.8);
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-accent);
+}
+
+.w-full {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .lead-box {
+    flex-direction: column;
+    padding: 2rem;
+  }
+}
